@@ -1,10 +1,19 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
+import type { ReactNode } from 'react'
 import { captureEvent, initAnalytics } from '@/lib/analytics'
 
-export function PostHogProvider({ children }: { children: React.ReactNode }) {
+export function PostHogProvider({ children }: { children: ReactNode }) {
+  return (
+    <Suspense fallback={children}>
+      <PostHogTracking>{children}</PostHogTracking>
+    </Suspense>
+  )
+}
+
+function PostHogTracking({ children }: { children: ReactNode }) {
   const initialized = useRef(false)
   const [ready, setReady] = useState(false)
   const pathname = usePathname()
