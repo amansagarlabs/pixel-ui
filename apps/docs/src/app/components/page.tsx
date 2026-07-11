@@ -26,6 +26,15 @@ function StripeDivider() {
   )
 }
 
+export function Skyline() {
+  return (
+    <div
+      aria-hidden="true"
+      className="full-bleed-stripes h-16 border-y border-border/60 bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.02))] opacity-70"
+    />
+  )
+}
+
 export function FooterCredits() {
   const rows = [
     ["Crafted by", "@pixel-ui"],
