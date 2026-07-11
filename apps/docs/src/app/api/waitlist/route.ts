@@ -20,7 +20,7 @@ function getResend() {
 
   const resendKey = process.env.RESEND_API_KEY ?? process.env['resend-api-key']
   if (!resendKey) {
-    throw new Error('RESEND_API_KEY is not set')
+    return null
   }
 
   resendClient = new Resend(resendKey)
@@ -32,9 +32,15 @@ function getRatelimit() {
     return ratelimitClient
   }
 
+  const redisUrl = process.env.UPSTASH_REDIS_REST_URL
+  const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN
+  if (!redisUrl || !redisToken) {
+    return null
+  }
+
   const redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL!,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+    url: redisUrl,
+    token: redisToken,
   })
 
   ratelimitClient = new Ratelimit({
@@ -61,19 +67,6 @@ export async function POST(request: NextRequest) {
 
   try {
     const db = getDb()
-    const resend = getResend()
-    const ratelimit = getRatelimit()
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ?? '127.0.0.1'
-    const result = await ratelimit.limit(ip)
-
-    if (!result.success) {
-      console.warn('waitlist rate limited', { requestId, ip })
-      return NextResponse.json(
-        { error: 'Too many requests. Please try again later.', requestId },
-        { status: 429 }
-      )
-    }
-
     const { email } = await request.json()
 
     if (!email) {
@@ -93,6 +86,20 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const ratelimit = getRatelimit()
+    if (ratelimit) {
+      const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ?? '127.0.0.1'
+      const result = await ratelimit.limit(ip)
+
+      if (!result.success) {
+        console.warn('waitlist rate limited', { requestId, ip })
+        return NextResponse.json(
+          { error: 'Too many requests. Please try again later.', requestId },
+          { status: 429 }
+        )
+      }
+    }
+
     const existing = await db.select({ id: waitlist.id }).from(waitlist).where(eq(waitlist.email, email)).limit(1)
 
     if (existing.length > 0) {
@@ -105,6 +112,17 @@ export async function POST(request: NextRequest) {
 
     await db.insert(waitlist).values({ email })
     console.info('waitlist signup saved', { requestId, email })
+
+    const resend = getResend()
+    if (!resend) {
+      console.warn('waitlist email skipped because RESEND_API_KEY is not set', { requestId, email })
+      return NextResponse.json({
+        success: true,
+        requestId,
+        mailStatus: 'skipped',
+        mailProviderResponse: null,
+      })
+    }
 
     try {
       if (resendFrom.toLowerCase().includes('@gmail.com')) {
@@ -135,6 +153,12 @@ export async function POST(request: NextRequest) {
     } catch (emailError) {
       console.error('waitlist email failure', { requestId, email, error: emailError })
 
+      console.info('waitlist signup completed without email delivery', {
+        requestId,
+        email,
+        mailStatus: 'failed',
+      })
+
       return NextResponse.json({
         success: true,
         requestId,
@@ -144,6 +168,32 @@ export async function POST(request: NextRequest) {
     }
   } catch (error) {
     console.error('waitlist signup failure', { requestId, error })
+
+    const message = error instanceof Error ? error.message : 'Unknown error'
+    if (message.includes('DATABASE_URL is not set')) {
+      return NextResponse.json(
+        {
+          error: 'Waitlist storage is not configured. Please add DATABASE_URL in Vercel.',
+          requestId,
+          mailStatus: 'failed',
+          mailProviderResponse: null,
+        },
+        { status: 503 }
+      )
+    }
+
+    if (message.includes('UPSTASH_REDIS_REST_URL') || message.includes('UPSTASH_REDIS_REST_TOKEN')) {
+      return NextResponse.json(
+        {
+          error: 'Waitlist rate limiting is not configured. Please add the Upstash env vars in Vercel.',
+          requestId,
+          mailStatus: 'failed',
+          mailProviderResponse: null,
+        },
+        { status: 503 }
+      )
+    }
+
     return NextResponse.json(
       {
         error: 'Failed to save your details. Please try again.',
