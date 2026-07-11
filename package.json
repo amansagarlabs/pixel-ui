@@ -3,14 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "description": "pixel-ui - AI Agent primitives registry",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "build": "cd apps/docs && npm run build",
+    "build": "npm run build -w @pixel-ui/docs",
     "build:cli": "cd packages/cli && npm run build",
     "build:registry": "cd packages/registry && npm run build",
     "build:core": "cd packages/core && npm run build",
     "generate:ui-registry": "node scripts/generate-ui-registry.mjs",
-    "dev": "cd apps/docs && npm run dev",
-    "dev:docs": "cd apps/docs && npm run dev",
+    "dev": "npm run dev -w @pixel-ui/docs",
+    "dev:docs": "npm run dev -w @pixel-ui/docs",
     "test": "vitest run",
     "lint": "eslint packages/*/src/**/*.ts",
     "typecheck": "tsc --noEmit"
