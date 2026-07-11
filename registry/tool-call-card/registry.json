@@ -1,0 +1,57 @@
+{
+  "name": "tool-call-card",
+  "type": "agent:primitive",
+  "category": "tools",
+  "version": "1.0.0",
+  "description": "Auditable tool execution card with pending, running, success, error, and approval states",
+  "author": "pixel-ui",
+  "license": "MIT",
+  "files": [
+    {
+      "name": "index.ts",
+      "path": "index.ts",
+      "type": "source",
+      "description": "Public exports"
+    },
+    {
+      "name": "tool-call-card.tsx",
+      "path": "tool-call-card.tsx",
+      "type": "source",
+      "description": "Tool call UI component"
+    },
+    {
+      "name": "use-tool-call.ts",
+      "path": "use-tool-call.ts",
+      "type": "source",
+      "description": "Tool call state adapter helpers"
+    },
+    {
+      "name": "types.ts",
+      "path": "types.ts",
+      "type": "types",
+      "description": "TypeScript types"
+    },
+    {
+      "name": "schema.ts",
+      "path": "schema.ts",
+      "type": "schema",
+      "description": "Zod schemas"
+    },
+    {
+      "name": "README.md",
+      "path": "README.md",
+      "type": "docs",
+      "description": "Documentation"
+    },
+    {
+      "name": "tool-call-card.test.ts",
+      "path": "tool-call-card.test.ts",
+      "type": "test",
+      "description": "Unit tests"
+    }
+  ],
+  "dependencies": ["zod"],
+  "devDependencies": ["vitest"],
+  "tags": ["tools", "trace", "approval", "agent-ui"],
+  "frameworks": ["openai", "langchain", "mastra", "plain"]
+}

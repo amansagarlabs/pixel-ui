@@ -1,0 +1,30 @@
+{
+  "name": "pixel-ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "pixel-ui - AI Agent primitives registry",
+  "scripts": {
+    "build": "cd apps/docs && npm run build",
+    "build:cli": "cd packages/cli && npm run build",
+    "build:registry": "cd packages/registry && npm run build",
+    "build:core": "cd packages/core && npm run build",
+    "generate:ui-registry": "node scripts/generate-ui-registry.mjs",
+    "dev": "cd apps/docs && npm run dev",
+    "dev:docs": "cd apps/docs && npm run dev",
+    "test": "vitest run",
+    "lint": "eslint packages/*/src/**/*.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.4.0",
+    "zod": "^3.22.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "lucide-react": "^1.23.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "context",
+  "category": "context-engineering",
+  "version": "1.0.0",
+  "description": "Context window optimization for AI agents",
+  "author": "AgentCN",
+  "license": "MIT",
+  "files": [
+    { "name": "index.ts", "path": "index.ts", "type": "source" },
+    { "name": "context.ts", "path": "context.ts", "type": "source" },
+    { "name": "types.ts", "path": "types.ts", "type": "types" },
+    { "name": "schema.ts", "path": "schema.ts", "type": "schema" },
+    { "name": "prompt.md", "path": "prompt.md", "type": "docs" },
+    { "name": "README.md", "path": "README.md", "type": "docs" },
+    { "name": "examples.ts", "path": "examples.ts", "type": "examples" },
+    { "name": "context.test.ts", "path": "context.test.ts", "type": "test" }
+  ],
+  "dependencies": ["zod"],
+  "tags": ["context", "compression", "optimization"],
+  "frameworks": ["langchain", "openai", "mastra", "plain"]
+}

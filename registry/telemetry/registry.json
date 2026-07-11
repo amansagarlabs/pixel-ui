@@ -1,0 +1,21 @@
+{
+  "name": "telemetry",
+  "category": "observability",
+  "version": "1.0.0",
+  "description": "Logging and monitoring for AI agents",
+  "author": "AgentCN",
+  "license": "MIT",
+  "files": [
+    { "name": "index.ts", "path": "index.ts", "type": "source" },
+    { "name": "telemetry.ts", "path": "telemetry.ts", "type": "source" },
+    { "name": "types.ts", "path": "types.ts", "type": "types" },
+    { "name": "schema.ts", "path": "schema.ts", "type": "schema" },
+    { "name": "prompt.md", "path": "prompt.md", "type": "docs" },
+    { "name": "README.md", "path": "README.md", "type": "docs" },
+    { "name": "examples.ts", "path": "examples.ts", "type": "examples" },
+    { "name": "telemetry.test.ts", "path": "telemetry.test.ts", "type": "test" }
+  ],
+  "dependencies": ["zod"],
+  "tags": ["telemetry", "logging", "monitoring"],
+  "frameworks": ["langchain", "openai", "mastra", "plain"]
+}

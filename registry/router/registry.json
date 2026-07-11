@@ -1,0 +1,21 @@
+{
+  "name": "router",
+  "category": "runtime",
+  "version": "1.0.0",
+  "description": "Multi-model routing for AI agents",
+  "author": "AgentCN",
+  "license": "MIT",
+  "files": [
+    { "name": "index.ts", "path": "index.ts", "type": "source" },
+    { "name": "router.ts", "path": "router.ts", "type": "source" },
+    { "name": "types.ts", "path": "types.ts", "type": "types" },
+    { "name": "schema.ts", "path": "schema.ts", "type": "schema" },
+    { "name": "prompt.md", "path": "prompt.md", "type": "docs" },
+    { "name": "README.md", "path": "README.md", "type": "docs" },
+    { "name": "examples.ts", "path": "examples.ts", "type": "examples" },
+    { "name": "router.test.ts", "path": "router.test.ts", "type": "test" }
+  ],
+  "dependencies": ["zod"],
+  "tags": ["router", "multi-model", "load-balancing"],
+  "frameworks": ["langchain", "openai", "mastra", "plain"]
+}

@@ -1,0 +1,111 @@
+{
+  "name": "pixel-ui-registry",
+  "version": "1.0.0",
+  "description": "Official pixel-ui primitives registry",
+  "url": "https://registry.pixel-ui.amansagar.in",
+  "primitives": [
+    {
+      "name": "planner",
+      "type": "agent:primitive",
+      "category": "runtime",
+      "version": "1.0.0",
+      "description": "Task decomposition and planning"
+    },
+    {
+      "name": "memory",
+      "type": "agent:primitive",
+      "category": "memory",
+      "version": "1.0.0",
+      "description": "Short-term and long-term memory"
+    },
+    {
+      "name": "attachments",
+      "type": "agent:primitive",
+      "category": "io-surfaces",
+      "version": "1.0.0",
+      "description": "Composable file and media attachment surfaces",
+      "dependencies": ["zod"],
+      "files": [
+        "attachments.tsx",
+        "attachments.schema.ts",
+        "use-attachments.ts"
+      ]
+    },
+    {
+      "name": "browser",
+      "type": "agent:primitive",
+      "category": "tools",
+      "version": "1.0.0",
+      "description": "Web browsing and interaction"
+    },
+    {
+      "name": "tool-call-card",
+      "type": "agent:primitive",
+      "category": "tools",
+      "version": "1.0.0",
+      "description": "Auditable tool execution card with pending, running, success, error, and approval states",
+      "dependencies": ["zod"],
+      "files": [
+        "tool-call-card.tsx",
+        "use-tool-call.ts",
+        "schema.ts"
+      ]
+    },
+    {
+      "name": "evaluator",
+      "type": "agent:primitive",
+      "category": "evaluation",
+      "version": "1.0.0",
+      "description": "Output evaluation and scoring"
+    },
+    {
+      "name": "reflection",
+      "type": "agent:primitive",
+      "category": "runtime",
+      "version": "1.0.0",
+      "description": "Self-reflection and improvement"
+    },
+    {
+      "name": "retry",
+      "type": "agent:primitive",
+      "category": "runtime",
+      "version": "1.0.0",
+      "description": "Retry logic with exponential backoff"
+    },
+    {
+      "name": "approval",
+      "type": "agent:primitive",
+      "category": "runtime",
+      "version": "1.0.0",
+      "description": "Human-in-the-loop approval"
+    },
+    {
+      "name": "router",
+      "type": "agent:primitive",
+      "category": "runtime",
+      "version": "1.0.0",
+      "description": "Multi-model routing"
+    },
+    {
+      "name": "telemetry",
+      "type": "agent:primitive",
+      "category": "observability",
+      "version": "1.0.0",
+      "description": "Logging and monitoring"
+    },
+    {
+      "name": "security",
+      "type": "agent:primitive",
+      "category": "security",
+      "version": "1.0.0",
+      "description": "Guardrails and safety"
+    },
+    {
+      "name": "context",
+      "type": "agent:primitive",
+      "category": "context-engineering",
+      "version": "1.0.0",
+      "description": "Context window optimization"
+    }
+  ]
+}

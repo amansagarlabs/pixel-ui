@@ -1,0 +1,21 @@
+{
+  "name": "retry",
+  "category": "runtime",
+  "version": "1.0.0",
+  "description": "Retry logic with exponential backoff",
+  "author": "AgentCN",
+  "license": "MIT",
+  "files": [
+    { "name": "index.ts", "path": "index.ts", "type": "source" },
+    { "name": "retry.ts", "path": "retry.ts", "type": "source" },
+    { "name": "types.ts", "path": "types.ts", "type": "types" },
+    { "name": "schema.ts", "path": "schema.ts", "type": "schema" },
+    { "name": "prompt.md", "path": "prompt.md", "type": "docs" },
+    { "name": "README.md", "path": "README.md", "type": "docs" },
+    { "name": "examples.ts", "path": "examples.ts", "type": "examples" },
+    { "name": "retry.test.ts", "path": "retry.test.ts", "type": "test" }
+  ],
+  "dependencies": ["zod"],
+  "tags": ["retry", "backoff", "error-handling"],
+  "frameworks": ["langchain", "openai", "mastra", "plain"]
+}

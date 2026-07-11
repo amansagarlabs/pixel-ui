@@ -1,0 +1,161 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "pixel-ui" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "Docs" [ref=e6] [cursor=pointer]:
+          - /url: /docs
+        - link "Primitives" [ref=e7] [cursor=pointer]:
+          - /url: /primitives
+        - link "Playground" [ref=e8] [cursor=pointer]:
+          - /url: /playground
+        - link "GitHub" [ref=e10] [cursor=pointer]:
+          - /url: https://github.com/amansagar070707-crypto/pixel-ui
+  - main [ref=e11]:
+    - generic [ref=e13]:
+      - generic [ref=e14]: The foundation for your design system
+      - heading "Beautiful components built for developers" [level=1] [ref=e15]
+      - paragraph [ref=e16]: Structured, tokenized UI guidance for dashboard applications. Reuse the system, keep contrast high, and ship production-ready surfaces without drifting from the core patterns.
+      - generic [ref=e17]:
+        - link "Browse docs" [ref=e18] [cursor=pointer]:
+          - /url: /docs
+          - button "Browse docs" [ref=e19]
+        - link "Star on GitHub" [ref=e20] [cursor=pointer]:
+          - /url: https://github.com/amansagar070707-crypto/pixel-ui
+          - button "Star on GitHub" [ref=e21]
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - generic [ref=e24]: "11"
+          - generic [ref=e25]: registry primitives
+        - generic [ref=e26]:
+          - generic [ref=e27]: "7"
+          - generic [ref=e28]: CLI commands
+        - generic [ref=e29]:
+          - generic [ref=e30]: 90%+
+          - generic [ref=e31]: coverage target
+        - generic [ref=e32]:
+          - generic [ref=e33]: Next 16
+          - generic [ref=e34]: docs runtime
+    - generic [ref=e35]:
+      - paragraph [ref=e37]: 105+ outstanding patterns, translated for this system.
+      - generic [ref=e38]:
+        - generic [ref=e40]:
+          - generic [ref=e48]:
+            - heading "Planner orchestration" [level=2] [ref=e62]
+            - paragraph [ref=e63]: Route complex tasks with explicit stages, retries, and approval hooks.
+          - generic [ref=e64]: Explore implementation
+        - generic [ref=e66]:
+          - generic [ref=e74]:
+            - heading "Memory retrieval" [level=2] [ref=e88]
+            - paragraph [ref=e89]: Context blocks tuned for operator workflows and session continuity.
+          - generic [ref=e90]: Explore implementation
+        - generic [ref=e92]:
+          - generic [ref=e100]:
+            - heading "Browser automation" [level=2] [ref=e114]
+            - paragraph [ref=e115]: Production-ready tool surfaces with observability and safe execution.
+          - generic [ref=e116]: Explore implementation
+        - generic [ref=e118]:
+          - generic [ref=e126]:
+            - heading "Security defaults" [level=2] [ref=e140]
+            - paragraph [ref=e141]: Tokenized guardrails for approvals, redaction, and operator review.
+          - generic [ref=e142]: Explore implementation
+        - generic [ref=e144]:
+          - generic [ref=e152]:
+            - heading "Telemetry everywhere" [level=2] [ref=e166]
+            - paragraph [ref=e167]: Structured traces, readable events, and implementation-ready examples.
+          - generic [ref=e168]: Explore implementation
+    - generic [ref=e170]:
+      - generic [ref=e171]:
+        - generic [ref=e172]: Agent primitives
+        - heading "Everything you need to ship faster" [level=2] [ref=e173]
+      - generic [ref=e174]:
+        - generic [ref=e176]:
+          - generic [ref=e177]: Ship faster
+          - heading "Everything you need to deliver a consistent agent UI surface." [level=3] [ref=e178]
+          - paragraph [ref=e179]: Use the current registry, CLI, and docs patterns instead of inventing local exceptions. This page keeps the system opinionated and implementation-first.
+          - generic [ref=e180]:
+            - generic [ref=e181]: Token-driven surfaces
+            - generic [ref=e182]: Accessible defaults
+            - generic [ref=e183]: Copy-source primitives
+        - generic [ref=e185]:
+          - generic [ref=e186]: Production-ready
+          - heading "Built for authenticated product teams, operators, and internal tooling." [level=3] [ref=e187]
+          - paragraph [ref=e188]: Structure, contrast, spacing, and motion stay deliberate. Every section is optimized for dense dashboard content instead of generic marketing filler.
+          - generic [ref=e189]:
+            - generic [ref=e190]: Dark-first depth
+            - generic [ref=e191]: Responsive grid rhythm
+            - generic [ref=e192]: Keyboard-visible interaction
+    - generic [ref=e193]:
+      - generic [ref=e194]:
+        - paragraph [ref=e195]: Production-ready templates
+        - heading "New rare templates" [level=2] [ref=e196]
+      - generic [ref=e197]:
+        - generic [ref=e199]:
+          - generic [ref=e201]: Aa
+          - generic [ref=e202]:
+            - heading "Command center" [level=3] [ref=e203]
+            - paragraph [ref=e204]: Ops dashboard shell
+        - generic [ref=e206]:
+          - generic [ref=e208]: Aa
+          - generic [ref=e209]:
+            - heading "Agent workspace" [level=3] [ref=e210]
+            - paragraph [ref=e211]: Task execution surface
+        - generic [ref=e213]:
+          - generic [ref=e215]: Aa
+          - generic [ref=e216]:
+            - heading "Review console" [level=3] [ref=e217]
+            - paragraph [ref=e218]: Approval and audit flows
+    - generic [ref=e220]:
+      - heading "Loved by builders" [level=2] [ref=e222]
+      - generic [ref=e223]:
+        - generic [ref=e225]:
+          - paragraph [ref=e226]: "\"The primitives read like source we can ship, not abstractions we need to undo later.\""
+          - generic [ref=e227]:
+            - generic [ref=e228]: Aman S.
+            - generic [ref=e229]: Builder
+        - generic [ref=e231]:
+          - paragraph [ref=e232]: "\"The docs surface stays dense and clear even when the workflow spans planning, memory, tools, and approvals.\""
+          - generic [ref=e233]:
+            - generic [ref=e234]: Operator team
+            - generic [ref=e235]: Internal platform
+        - generic [ref=e237]:
+          - paragraph [ref=e238]: "\"The token model keeps visual drift under control across fast-moving dashboard work.\""
+          - generic [ref=e239]:
+            - generic [ref=e240]: Frontend lead
+            - generic [ref=e241]: Design systems
+    - generic [ref=e242]:
+      - generic [ref=e243]:
+        - generic [ref=e244]:
+          - generic [ref=e245]: Build with confidence
+          - heading "Building the future of interfaces" [level=2] [ref=e246]
+          - paragraph [ref=e247]: Compose dashboards, docs, and operator tooling from a shared system. Keep implementation direct, auditable, and fast to iterate.
+          - generic [ref=e248]:
+            - link "Explore docs" [ref=e249] [cursor=pointer]:
+              - /url: /docs
+              - button "Explore docs" [ref=e250]
+            - link "View primitives" [ref=e251] [cursor=pointer]:
+              - /url: /primitives
+              - button "View primitives" [ref=e252]
+        - generic [ref=e253]:
+          - generic [ref=e254]:
+            - generic [ref=e255]: product
+            - list [ref=e256]:
+              - listitem [ref=e257]: Docs
+              - listitem [ref=e258]: Primitives
+              - listitem [ref=e259]: Playground
+          - generic [ref=e260]:
+            - generic [ref=e261]: resources
+            - list [ref=e262]:
+              - listitem [ref=e263]: Registry Spec
+              - listitem [ref=e264]: CLI Spec
+              - listitem [ref=e265]: Architecture
+          - generic [ref=e266]:
+            - generic [ref=e267]: company
+            - list [ref=e268]:
+              - listitem [ref=e269]: GitHub
+              - listitem [ref=e270]: Contributing
+              - listitem [ref=e271]: Open source
+      - generic [ref=e272]:
+        - paragraph [ref=e273]: Structured, tokenized, content-first UI for authenticated product surfaces.
+        - paragraph [ref=e274]: pixel-ui docs / Next.js 16 / Geist
