@@ -10,6 +10,14 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'pixel-ui - Agent UI Primitives',
   description: 'Agent UI primitives for tool calls, streaming chat, memory, approvals, and schemas.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.ico',
+  },
+  manifest: '/site.webmanifest',
 }
 
 export const viewport: Viewport = {

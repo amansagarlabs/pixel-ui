@@ -16,8 +16,8 @@
     "dev": "npm run dev -w @pixel-ui/docs",
     "dev:docs": "npm run dev -w @pixel-ui/docs",
     "test": "vitest run",
-    "lint": "eslint packages/*/src/**/*.ts",
-    "typecheck": "tsc --noEmit"
+    "lint": "npm run lint -w @pixel-ui/docs",
+    "typecheck": "npm run typecheck -w @pixel-ui/docs"
   },
   "devDependencies": {
     "tsup": "^8.0.0",

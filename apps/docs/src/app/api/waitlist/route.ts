@@ -9,9 +9,41 @@ import { getDb } from '@/lib/db'
 import { waitlist } from '../../../../drizzle/schema'
 import { WaitlistConfirmationEmail } from '@/emails/waitlist-confirmation'
 
-const resendKey = process.env.RESEND_API_KEY ?? process.env['resend-api-key']
-const resend = new Resend(resendKey)
 const resendFrom = process.env.RESEND_FROM ?? 'Pixel UI <pixel-ui@amansagar.in>'
+let resendClient: Resend | null = null
+let ratelimitClient: Ratelimit | null = null
+
+function getResend() {
+  if (resendClient) {
+    return resendClient
+  }
+
+  const resendKey = process.env.RESEND_API_KEY ?? process.env['resend-api-key']
+  if (!resendKey) {
+    throw new Error('RESEND_API_KEY is not set')
+  }
+
+  resendClient = new Resend(resendKey)
+  return resendClient
+}
+
+function getRatelimit() {
+  if (ratelimitClient) {
+    return ratelimitClient
+  }
+
+  const redis = new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL!,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+  })
+
+  ratelimitClient = new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(3, '1 m'),
+  })
+
+  return ratelimitClient
+}
 
 function normalizeMailResponse(mailResult: unknown) {
   if (mailResult && typeof mailResult === 'object' && 'data' in mailResult) {
@@ -24,21 +56,13 @@ function normalizeMailResponse(mailResult: unknown) {
   return null
 }
 
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-})
-
-const ratelimit = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(3, '1 m'),
-})
-
 export async function POST(request: NextRequest) {
   const requestId = nanoid(8)
-  const db = getDb()
 
   try {
+    const db = getDb()
+    const resend = getResend()
+    const ratelimit = getRatelimit()
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ?? '127.0.0.1'
     const result = await ratelimit.limit(ip)
 
