@@ -5,7 +5,7 @@ import { Redis } from '@upstash/redis'
 import { Ratelimit } from '@upstash/ratelimit'
 import { nanoid } from 'nanoid'
 import * as React from 'react'
-import { db } from '@/lib/db'
+import { getDb } from '@/lib/db'
 import { waitlist } from '../../../../drizzle/schema'
 import { WaitlistConfirmationEmail } from '@/emails/waitlist-confirmation'
 
@@ -36,6 +36,7 @@ const ratelimit = new Ratelimit({
 
 export async function POST(request: NextRequest) {
   const requestId = nanoid(8)
+  const db = getDb()
 
   try {
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ?? '127.0.0.1'
